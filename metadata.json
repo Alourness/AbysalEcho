@@ -1,0 +1,6 @@
+{
+  "name": "AbyssalEcho",
+  "description": "AbyssalEcho - 2D top-down action game with WebGL GPU shader lighting and plasma combat effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
