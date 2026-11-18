@@ -1,153 +1,64 @@
-<div align="center">
+# AbyssalEcho
 
-# ABYSSAL ECHO
+A fast-paced 2D top-down plasma action game set in a stone arena with real-time WebGL GLSL shader lighting, dynamic combat effects, and multi-phase boss fights.
 
-**Динамический 2D Top-Down экшен в каменной плазменной арене с аппаратным GPU-освещением (WebGL / GLSL & ModernGL)**
+## Features
 
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-7.0-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
-[![WebGL](https://img.shields.io/badge/WebGL-GLSL%20Shaders-990000?style=flat-square&logo=webgl&logoColor=white)](https://www.khronos.org/webgl/)
-[![Electron](https://img.shields.io/badge/Desktop-Portable%20.EXE-47848F?style=flat-square&logo=electron&logoColor=white)](https://www.electronjs.org/)
-[![Python](https://img.shields.io/badge/Python-Pygame%20%2B%20ModernGL-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+- **Real-Time WebGL Lighting:** Dynamic glow from lasers, explosions, plasma trails, and arena braziers.
+- **3 Handcrafted Levels:**
+  - **Level 1:** 15 enemies — arena warm-up.
+  - **Level 2:** 40 enemies + Titan boss fight with precision aiming lasers.
+  - **Level 3:** 55 enemies, elite shooting/dashing squads, dual Titans, and the **Aegis Overlord** boss with a rotating barrier and radial plasma bursts.
+- **Combat & Stamina:** Guided plasma beam, charged plasma shot, and a ramming force shield (`+40%` speed, destroys enemies on contact, deflects projectiles).
+- **2-Second Damage Cooldown:** Brief invulnerability window with ground lightning effects after taking a hit.
+- **Desktop & Standalone Build:** Runs in a clean standalone desktop window or compiles into a portable `AbyssalEcho.exe`.
 
-</div>
+## Controls
 
----
-
-## О проекте
-
-**AbyssalEcho** — аркадный 2D-экшен с видом сверху на каменной октагональной арене `900×700` при стабильных **60 FPS**. Игроку предстоит управлять плазменным ядром с помощью мыши, комбинировать наводящийся плазменный луч и таранный силовой щит, отражать вражеские залпы и сражаться с боссами на трёх уровнях сложности.
-
-Проект включает:
-- **Основную версию (WebGL + GLSL + Electron)** — полноценный рендерер с динамическим попиксельным освещением стен и пола, плазменными переливами сущностей, угловыми бастионами с жаровнями, SVG-монолитом меню с фиолетовыми трещинами, Web Audio SFX и сборкой в автономный `AbyssalEcho.exe`.
-- **Нативную Python-редакцию (Pygame + ModernGL)** — модульную десктопную версию на Python с аппаратными GLSL-шейдерами и автоматическим фоллбэком на стандартный Pygame.
-
----
-
-## Ключевые особенности
-
-### Графика и шейдерный пайплайн
-- **Аппаратное освещение (WebGL GLSL):** динамические точечные и линейные источники света от игрока, активного и выпущенного лазеров, таранной ауры, взрывов и лучей боссов.
-- **Октагональная каменная арена:** текстурированная каменная кладка, чёткие границы стен со всех сторон, 4 угловых бастиона с плазменными жаровнями.
-- **Эффекты боя без просадок FPS:** оптимизированный радиальный разлёт искр при уничтожении врагов, фиолетовые молнии по земле при получении урона и дрожание камеры (screen shake) при выстрелах боссов и взрывах.
-- **Процедурное аудио:** встроенный синтез звуковых эффектов (лазер, рикошет, взрыв, молния, таран) на Web Audio API и зацикленный саундтрек `level_music.wav`.
-
-### Геймплей, уровни и боссы
-- **Управление энергией (Stamina):** две независимые шкалы стамины — для таранного щита и для плазменного лазера (с механикой истощения при полном расходе).
-- **Защита и контратака:**
-  - **2-секундный кулдаун неуязвимости** (`120` тиков) после получения урона с разрядом молний.
-  - **Таранный щит** ускоряет перемещение на 40%, мгновенно уничтожает врагов при контакте и **отражает вражеские выстрелы**, делая игрока неуязвимым к проджектайлам во время рывка.
-- **Прогрессия из 3 уровней:**
-  1. **Level I** — `15` врагов, разминка на арене.
-  2. **Level II** — `40` врагов и финальная битва с боссом-Титаном, оснащённым прицельным лазером с предупреждающим наведением.
-  3. **Level III** — `55` врагов, элитные стреляющие юниты со способностью рывка, двойной спавн Титанов и последующий выход особого босса **Aegis Overlord** с вращающимся защитным барьером, рывками и круговыми плазменными залпами.
-
----
-
-## Управление
-
-| Клавиша / Действие | Эффект |
+| Input | Action |
 | :--- | :--- |
-| **Движение мыши** | Направление полёта и скорость (чем дальше курсор, тем выше скорость) |
-| **ПКМ (зажать)** | Активация и наведение плазменного луча |
-| **ПКМ (отпустить)** | Выстрел летящим плазменным сгустком по направлению луча |
-| **Пробел (`Space`)** | Таранный силовой щит (+40% к скорости, уничтожение врагов, отражение выстрелов) |
-| **Esc** | Пауза / возврат в игру |
+| **Mouse Cursor** | Move and steer (farther cursor = faster movement) |
+| **Right Click (Hold)** | Aim guided plasma beam |
+| **Right Click (Release)** | Fire plasma projectile |
+| **Space** | Activate ramming force shield |
+| **Esc** | Pause game |
 
----
+## Quick Start (WebGL Version)
 
-## Быстрый старт (Основная WebGL-версия)
+> **Windows note:** Make sure the project folder path does not contain `&` (e.g., rename the folder to `AbyssalEcho`).
 
-> **Важно для пользователей Windows:** убедитесь, что в пути к папке проекта **нет символа `&`** (например, назовите папку `AbyssalEcho`), иначе командная строка Windows `cmd.exe` разобьёт путь при запуске скриптов.
+**Requirements:** [Node.js](https://nodejs.org/) (LTS)
 
-### Требования
-- [Node.js](https://nodejs.org/) (рекомендуется **v20+ LTS**)
+### One-Click Launch (Windows)
+Double-click **`START_GAME.bat`** to install dependencies (first run only) and open the game in a standalone `920×740` desktop window.
 
-### 1. Запуск в одном окне (Windows)
-Просто запустите двойным кликом файл **`START_GAME.bat`** в корне репозитория. Скрипт сам установит зависимости при первом запуске и откроет игру в отдельном окне приложения (`920×740`) без вкладок и адресной строки.
-
-### 2. Ручной запуск через терминал / VS Code
+### Terminal / VS Code
 ```bash
-# Установка зависимостей
 npm install --legacy-peer-deps
-
-# Запуск сервера разработки (порт 3000)
 npm run dev
 ```
-> **Совет (PowerShell):** если Windows блокирует `npm.ps1` политикой безопасности, используйте `npm.cmd install --legacy-peer-deps` и `npm.cmd run dev`.
+*(In Windows PowerShell, use `npm.cmd` if script execution is restricted.)*
 
----
+## Build Portable `.exe` (Windows)
 
-## Сборка в автономный `.exe` (Windows Portable)
-
-Чтобы упаковать игру в самостоятельный исполняемый файл **`AbyssalEcho.exe`** (для запуска на любом ПК без установленного Node.js):
-
-- Запустите **`BUILD_EXE.bat`**
-- Или выполните команду в терминале:
-
+Run **`BUILD_EXE.bat`**, or execute:
 ```bash
 npm run package-exe
 ```
+The compiled **`AbyssalEcho.exe`** will be generated inside the `dist/` folder.
 
-Готовый исполняемый файл появится в директории **`dist/`**. Точка входа Electron описана в `electron-main.cjs`.
+## Python Edition (Pygame + ModernGL)
 
----
+A native Python version is also included in the root directory.
 
-## Альтернативный запуск: Python-редакция (Pygame + ModernGL)
-
-В корне проекта также поддерживается модульная нативная версия на Python с поддержкой аппаратных шейдеров `moderngl`:
-
-### Требования
-- Python `3.10+`
-- Зависимости из `requirements.txt`: `pygame>=2.5.0`, `moderngl>=5.8.0`, `numpy>=1.24.0`
-
-### Запуск
 ```bash
 pip install -r requirements.txt
 python main.py
 ```
-*(При отсутствии `pygame` скрипт `main.py` также пытается автоматически доустановить `pygame-ce`, `moderngl` и `numpy`).*
 
----
+## Project Structure
 
-## Структура проекта
-
-```text
-AbyssalEcho/
-├── src/
-│   ├── components/
-│   │   └── GameCanvas.tsx    # Игровое ядро, WebGL GLSL-шейдеры, 3 уровня, боссы, HUD и меню
-│   ├── App.tsx               # Корневой контейнер игрового окна
-│   ├── main.tsx              # Точка входа React
-│   └── index.css             # Стилизация Tailwind CSS
-├── public/
-│   └── assets/aistudio/      # Аудиоресурсы (level_music.wav) и ассеты
-├── electron-main.cjs         # Конфигурация десктопного окна Electron для .exe
-├── START_GAME.bat            # Скрипт запуска WebGL-версии в окне (Windows)
-├── BUILD_EXE.bat             # Скрипт сборки портативного AbyssalEcho.exe
-├── package.json              # Скрипты Vite, Electron Builder и зависимости
-├── index.html                # HTML-точка входа
-├── main.py                   # Точка входа нативной Python-версии
-├── engine.py                 # Рендерер ModernGL + GLSL-шейдеры (Python)
-├── game.py                   # Логика арены и волн (Python)
-├── boss.py                   # Титаны и Aegis Overlord (Python)
-├── entities.py               # Сущности игрока и врагов (Python)
-├── ui.py                     # Главное меню (Python)
-├── audio.py                  # Менеджер звука (Python)
-├── config.py                 # Игровые константы и размеры окна (Python)
-├── level_music.wav           # Фоновая музыка для Python-версии
-└── requirements.txt          # Зависимости Python
-```
-
----
-
-## Скрипты `package.json`
-
-| Команда | Назначение |
-| :--- | :--- |
-| `npm run dev` | Запуск локального сервера разработки на `http://localhost:3000` |
-| `npm run build` | Сборка продакшн-бандла в `dist/` |
-| `npm run preview` | Предпросмотр собранного бандла |
-| `npm run package-exe` | Сборка бандла и упаковка портативного `AbyssalEcho.exe` |
-| `npm run lint` | Проверка типов TypeScript (`tsc --noEmit`) |
+- `src/components/GameCanvas.tsx` — Main WebGL shader engine, 3 levels, bosses, audio, and UI
+- `electron-main.cjs` — Electron wrapper for standalone desktop builds
+- `START_GAME.bat` / `BUILD_EXE.bat` — Windows launcher and `.exe` builder
+- `main.py`, `engine.py`, `game.py`, `boss.py`, `entities.py`, `ui.py`, `audio.py`, `config.py` — Native Python (Pygame + ModernGL) edition
